@@ -4,8 +4,11 @@
 // https://yalter.github.io/niri/Configuration:-Introduction
 //things at startup
 //spawn-at-startup "waybar"
-spawn-at-startup "polkit-kde-agent"
-spawn-sh-at-startup "swaybg -m fill -i /home/kirito/Pictures/wallpapers/mak_upscaled.png"
+prefer-no-csd
+spawn-at-startup "wireplumber"
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-sh-at-startup "swaybg -m fill -i /home/kirito/Pictures/wallpapers/miku.png"
+spawn-at-startup "swaync"
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
@@ -158,6 +161,7 @@ layout {
     // `draw-border-with-background`.
 
     // You can change how the focus ring looks.
+    
     focus-ring {
         // Uncomment this line to disable the focus ring.
         // off
@@ -171,7 +175,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "azure"
 
         // Color of the ring on inactive monitors.
         //
@@ -315,6 +319,10 @@ animations {
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
+    clip-to-geometry true
+    draw-border-with-background false
+}
+window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -325,7 +333,10 @@ layer-rule {
 	match namespace="wallpaper"
 	place-within-backdrop true
 }
-
+layer-rule {
+	match namespace="waybar"
+	place-within-backdrop true
+}
 overview {
 	zoom 0.65
 }
@@ -373,8 +384,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -386,10 +397,10 @@ binds {
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
     // "-l 1.0" limits the volume to 100%.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ +1%"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ -1%"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "pactl set-sink-mute @DEFAULT_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "pactl set-sink-mute @DEFAULT_SOURCE@ toggle"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
