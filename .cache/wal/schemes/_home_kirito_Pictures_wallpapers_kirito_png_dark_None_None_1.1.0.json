@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kirito/Pictures/wallpapers/kirito.png",
+    "alpha": "100",
+    "special": {
+        "background": "#010D11",
+        "foreground": "#c6efef",
+        "cursor": "#c6efef"
+    },
+    "colors": {
+        "color0": "#010D11",
+        "color1": "#C78C69",
+        "color2": "#297788",
+        "color3": "#1A9BA4",
+        "color4": "#40B9C3",
+        "color5": "#5FE0E4",
+        "color6": "#C6B0A5",
+        "color7": "#c6efef",
+        "color8": "#8aa7a7",
+        "color9": "#C78C69",
+        "color10": "#297788",
+        "color11": "#1A9BA4",
+        "color12": "#40B9C3",
+        "color13": "#5FE0E4",
+        "color14": "#C6B0A5",
+        "color15": "#c6efef"
+    }
+}

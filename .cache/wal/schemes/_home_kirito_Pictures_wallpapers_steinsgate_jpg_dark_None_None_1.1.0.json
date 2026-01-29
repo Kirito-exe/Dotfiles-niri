@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kirito/Pictures/wallpapers/steinsgate.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#010101",
+        "foreground": "#e1e2e2",
+        "cursor": "#e1e2e2"
+    },
+    "colors": {
+        "color0": "#010101",
+        "color1": "#FCB208",
+        "color2": "#9DAD53",
+        "color3": "#2566C0",
+        "color4": "#26E6A9",
+        "color5": "#979388",
+        "color6": "#BEC0C0",
+        "color7": "#e1e2e2",
+        "color8": "#9d9e9e",
+        "color9": "#FCB208",
+        "color10": "#9DAD53",
+        "color11": "#2566C0",
+        "color12": "#26E6A9",
+        "color13": "#979388",
+        "color14": "#BEC0C0",
+        "color15": "#e1e2e2"
+    }
+}

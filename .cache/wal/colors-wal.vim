@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/kirito/Pictures/wallpapers/miku.png"
+let background = "#101315"
+let foreground = "#e4e1e3"
+let cursor     = "#e4e1e3"
+
+" Colors
+let color0  = "#101315"
+let color1  = "#A39CA2"
+let color2  = "#8EABB7"
+let color3  = "#D1AFB0"
+let color4  = "#A0B7C4"
+let color5  = "#D2BFC1"
+let color6  = "#AFC6D0"
+let color7  = "#e4e1e3"
+let color8  = "#9f9d9e"
+let color9  = "#A39CA2"
+let color10 = "#8EABB7"
+let color11 = "#D1AFB0"
+let color12 = "#A0B7C4"
+let color13 = "#D2BFC1"
+let color14 = "#AFC6D0"
+let color15 = "#e4e1e3"

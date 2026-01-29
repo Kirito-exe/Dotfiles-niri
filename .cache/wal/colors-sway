@@ -1,0 +1,21 @@
+set $wallpaper /home/kirito/Pictures/wallpapers/miku.png
+
+set $background #101315
+set $foreground #e4e1e3
+
+set $color0 #101315
+set $color1 #A39CA2
+set $color2 #8EABB7
+set $color3 #D1AFB0
+set $color4 #A0B7C4
+set $color5 #D2BFC1
+set $color6 #AFC6D0
+set $color7 #e4e1e3
+set $color8 #9f9d9e
+set $color9 #A39CA2
+set $color10 #8EABB7
+set $color11 #D1AFB0
+set $color12 #A0B7C4
+set $color13 #D2BFC1
+set $color14 #AFC6D0
+set $color15 #e4e1e3
