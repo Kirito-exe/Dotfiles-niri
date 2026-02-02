@@ -1,0 +1,11 @@
+/* Nautilus sidebar fix for niri */
+.nautilus-window .sidebar {
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+.nautilus-window .sidebar row:selected {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+

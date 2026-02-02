@@ -4,7 +4,7 @@
 // https://yalter.github.io/niri/Configuration:-Introduction
 //things at startup
 //spawn-at-startup "waybar"
-prefer-no-csd
+//prefer-no-csd
 spawn-at-startup "wireplumber"
 spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-sh-at-startup "swaybg -m fill -i /home/kirito/Pictures/wallpapers/miku.png"
@@ -385,7 +385,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "bash ~/.config/rofi/launchers/type-2/launcher.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

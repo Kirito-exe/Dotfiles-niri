@@ -19,7 +19,6 @@
         "niri/workspaces"
     ],
     "modules-right": [
-        "group/cpuu",
         "battery",
         "pulseaudio",
         "network",
