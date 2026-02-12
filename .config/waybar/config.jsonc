@@ -154,10 +154,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}% ",
-        "format-charging": "{capacity}% ",
-        "format-plugged": " {capacity}%",
+        "format": "{icon}   {capacity}%",
+        "format-full": "{icon}  {capacity}% ",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "  {capacity}%",
         "format-alt": "{icon} {time} ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -188,8 +188,8 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}% ", //add {format_source} for mic volume and stuff}
-        "format-bluetooth": "{icon} {volume}%  ",
+        "format": "{icon}   {volume}% ", //add {format_source} for mic volume and stuff}
+        "format-bluetooth": "{icon}   {volume}%  ",
         "format-bluetooth-muted": " {icon} ",
         "format-muted": " ",
         "format-source": "{volume}% ",
@@ -233,7 +233,7 @@
     "custom/appmenu": {
         "format" : "󰣇",
         "tooltip" : "false",
-        "on-click": "rofi -show drun"
+        "on-click": "bash ~/.config/rofi/launchers/type-2/launcher.sh"
     },
     "wireplumber": {
     "format": "{volume}% {icon} {format_source}",
