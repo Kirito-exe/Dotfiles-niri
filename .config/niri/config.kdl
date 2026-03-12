@@ -7,12 +7,26 @@
 //prefer-no-csd
 spawn-at-startup "wireplumber"
 spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-sh-at-startup "swaybg -m fill -i /home/kirito/Pictures/wallpapers/miku.png"
+spawn-sh-at-startup "swaybg -m fill -i /home/kirito/Pictures/wallpapers/persona3.png"
 spawn-at-startup "swaync"
 spawn-sh-at-startup "bash ~/scripts/earbuds.sh"
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
+//discord opacity type shiiiiiiiiii
+window-rule{
+	match title="Discord"
+	match app-id="Discord"
+	opacity 0.98
+	draw-border-with-background false
+}
+gestures {
+    // ... other settings ...
+    hot-corners {
+        off
+    }
+}
+
 input {
     keyboard {
         xkb {
@@ -177,7 +191,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "azure"
+        active-color "#c9d9e5"
 
         // Color of the ring on inactive monitors.
         //
@@ -420,6 +434,8 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
+
+    // Disable the hot corners.
 
     Mod+O repeat=false { toggle-overview; }
 
