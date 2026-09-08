@@ -350,6 +350,10 @@ layer-rule {
 	place-within-backdrop true
 }
 layer-rule {
+	match namespace="mpvpaper"
+	place-within-backdrop true
+}
+layer-rule {
 	match namespace="waybar"
 	place-within-backdrop true
 }
@@ -405,7 +409,8 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
-
+    //wallpaper picker
+    Mod+Shift+W repeat=false { spawn "~/.config/niri/scripts/wallpaper-picker.py"; }	
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     //Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "bash ~/.config/rofi/launchers/type-2/launcher.sh"; }

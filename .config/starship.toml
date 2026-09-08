@@ -1,70 +1,145 @@
-"$schema" = 'https://starship.rs/config-schema.json'
 palette = "noctalia"
 
-format = """
-[░▒▓](#a3aed2)\
-[  ](bg:#a3aed2 fg:#090c0c)\
-[](bg:#769ff0 fg:#a3aed2)\
-$directory\
-[](fg:#769ff0 bg:#394260)\
+# Format Layout (Pawlette Standard Order: Who -> Where -> Git Context -> Proxy)
+format = """\
+[╭╴](fg:magenta)\
+$os\
+$username\
+(\
+    at \
+    $directory\
+)\
 $git_branch\
-$git_status\
-[](fg:#394260 bg:#212736)\
-$nodejs\
-$rust\
-$golang\
-$php\
-[](fg:#212736 bg:#1d2230)\
-$time\
-[ ](fg:#1d2230)\
-\n$character"""
+$cmd_duration${custom.proxy}\
+(\
+    $python\
+    $conda\
+    $nodejs\
+    $c\
+    $rust\
+    $java\
+)
+[╰─](fg:magenta)$character\
+"""
+
+# Enable blank line between commands
+add_newline = true
+
+[character]
+success_symbol = "[󰍟](fg:magenta)"
+error_symbol = "[󰍟](fg:red)"
+
+[os]
+format = "[$symbol]($style)"
+style = "bold magenta"
+disabled = false
+
+[os.symbols]
+Alpine = " "
+Arch = " "
+CachyOS = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mint = " "
+NixOS = " "
+openSUSE = " "
+Pop = " "
+SUSE = " "
+Ubuntu = " "
+Windows = " "
+
+[username]
+style_user = "bold magenta"
+style_root = "bold red"
+format = "[$user]($style) "
+disabled = false
+show_always = true
 
 [directory]
-style = "fg:#e3e5e5 bg:#769ff0"
-format = "[ $path ]($style)"
-truncation_length = 3
+format = "[$path](bold fg:magenta)[$read_only]($read_only_style) "
+truncation_length = 2
+style = "fg:magenta"
+read_only_style = "fg:magenta"
+before_repo_root_style = "fg:magenta"
 truncation_symbol = "…/"
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-
-[git_branch]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
-
-[git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[php]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+truncate_to_repo = true
+read_only = "  "
 
 [time]
+disabled = true
+
+[cmd_duration]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+format = "took [ $duration]($style) "
+style = "bold fg:red"
+min_time = 500
+
+[git_branch]
+format = "via [$symbol$branch]($style) "
+style = "bold fg:cyan"
+symbol = " "
+
+[git_status]
+disabled = true
+
+[docker_context]
+disabled = false
+symbol = " "
+
+[package]
+disabled = false
+
+[nodejs]
+format = "[$symbol$version]($style) "
+style = "bold fg:green"
+symbol = " "
+version_format = "${raw}"
+disabled = false
+
+[python]
+disabled = false
+format = '[${symbol}${pyenv_prefix}(${version})( \($virtualenv\))]($style) '
+symbol = " "
+version_format = "${raw}"
+style = "bold fg:yellow"
+
+[conda]
+format = "[$symbol$environment]($style) "
+style = "bold fg:green"
+ignore_base = false
+disabled = false
+symbol = " "
+
+[java]
+format = "[$symbol$version]($style) "
+style = "bold fg:red"
+version_format = "${raw}"
+symbol = " "
+disabled = false
+
+[c]
+format = "[$symbol($version(-$name))]($style) "
+style = "bold fg:cyan"
+symbol = " "
+version_format = "${raw}"
+disabled = false
+
+[rust]
+format = "[$symbol$version]($style) "
+style = "bold fg:magenta"
+symbol = " "
+version_format = "${raw}"
+disabled = false
+
+[custom.proxy]
+command = "echo $http_proxy $all_proxy $HTTP_PROXY $ALL_PROXY | tr ' ' '\\n' | grep -v '^$' | head -n1 | sed -E 's|.*:||'"
+when = "test -n \"$http_proxy\" -o -n \"$all_proxy\" -o -n \"$HTTP_PROXY\" -o -n \"$ALL_PROXY\""
+style = "bold fg:yellow"
+format = "[󰲝 $output]($style) "
 
 # >>> NOCTALIA STARSHIP PALETTE >>>
 # Noctalia Starship Palette
@@ -72,26 +147,26 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [palettes.noctalia]
 # Standard colors
-blue      = "#dfc38c"
+blue      = "#a0cfd1"
 red       = "#ffb4ab"
-green     = "#ffb4a9"
-yellow    = "#e7bdb7"
-cyan      = "#e7bdb7"
-magenta   = "#ffb4a9"
+green     = "#9ad680"
+yellow    = "#bccbb0"
+cyan      = "#bccbb0"
+magenta   = "#9ad680"
 white     = "#e2e2e2"
 black     = "#474747"
 
 # Extended palette (Catppuccin-compatible names)
-rosewater = "#e7bdb7"
+rosewater = "#bccbb0"
 flamingo  = "#ffb4ab"
-pink      = "#ffb4a9"
-mauve     = "#ffb4a9"
+pink      = "#9ad680"
+mauve     = "#9ad680"
 maroon    = "#ffb4ab"
-peach     = "#e7bdb7"
-teal      = "#e7bdb7"
-sky       = "#e7bdb7"
-sapphire  = "#dfc38c"
-lavender  = "#ffb4a9"
+peach     = "#bccbb0"
+teal      = "#bccbb0"
+sky       = "#bccbb0"
+sapphire  = "#a0cfd1"
+lavender  = "#9ad680"
 
 # Text shades
 text      = "#e2e2e2"
