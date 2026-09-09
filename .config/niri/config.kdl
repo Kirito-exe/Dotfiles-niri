@@ -20,6 +20,23 @@ window-rule{
 	opacity 0.98
 	draw-border-with-background false
 }
+window-rule{
+	match app-id="code-oss"
+	opacity 0.93
+	draw-border-with-background false
+	background-effect{
+		blur true
+	}
+}
+window-rule{
+	match title="Spotify Premium"
+	match app-id="Spotify"
+	opacity 0.90
+	draw-border-with-background false
+	background-effect{
+		blur true
+	}
+}
 layer-rule{
 	match namespace="noctalia-desktop-widget-clock-0000000000000004"
 	place-within-backdrop true
@@ -696,5 +713,6 @@ binds {
     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 }
+
 
 include "noctalia.kdl"

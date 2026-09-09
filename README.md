@@ -4,3 +4,4 @@ swaync dotfiles: https://github.com/zDyant/HyprNova.git
 well i have switched to noctalia shell so my configs will thereafter change according to suit the noctalia shell for now, also adding the folder
 new noctalia config from nyxniri: https://github.com/ech678/NyxNiri
 well added a lot more like the wallpaper switcher and fastfetch changes
+added blur for code-oss and new spotify theme
